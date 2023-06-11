@@ -1,154 +1,154 @@
-[
-    {
-        "attacks": {
-            "list": [
-                {
-                    "english": "Katadori",
-                    "japanese": "肩取り"
-                },
-                {
-                    "english": "Katatedori",
-                    "japanese": "片手取り"
-                },
-                {
-                    "english": "Katatedori Ryōtemochi",
-                    "japanese": "片手取り両手持ち"
-                },
-                {
-                    "english": "Kōsadori",
-                    "japanese": "交差取り"
-                },
-                {
-                    "english": "Kubijime",
-                    "japanese": "首締め"
-                },
-                {
-                    "english": "Munetsuki",
-                    "japanese": "胸突き"
-                },
-                {
-                    "english": "Ryōkatadori",
-                    "japanese": "両肩取り"
-                },
-                {
-                    "english": "Ryōtedori",
-                    "japanese": "両手取り"
-                },
-                {
-                    "english": "Shōmen-uchi",
-                    "japanese": "正面打ち"
-                },
-                {
-                    "english": "Yokomen-uchi",
-                    "japanese": "横面打ち"
-                }
-            ],
-            "freestyle": {
-                "english": "Any Attack",
-                "japanese": false
+{
+    "atttacks": {
+        "name": "Attacks",
+        "list": [
+            {
+                "english": "Katadori",
+                "japanese": "肩取り"
+            },
+            {
+                "english": "Katatedori",
+                "japanese": "片手取り"
+            },
+            {
+                "english": "Katatedori Ryōtemochi",
+                "japanese": "片手取り両手持ち"
+            },
+            {
+                "english": "Kōsadori",
+                "japanese": "交差取り"
+            },
+            {
+                "english": "Kubijime",
+                "japanese": "首締め"
+            },
+            {
+                "english": "Munetsuki",
+                "japanese": "胸突き"
+            },
+            {
+                "english": "Ryōkatadori",
+                "japanese": "両肩取り"
+            },
+            {
+                "english": "Ryōtedori",
+                "japanese": "両手取り"
+            },
+            {
+                "english": "Shōmen-uchi",
+                "japanese": "正面打ち"
+            },
+            {
+                "english": "Yokomen-uchi",
+                "japanese": "横面打ち"
             }
+        ],
+        "freestyle": {
+            "english": "Any Attack",
+            "japanese": false
         }
     },
-    {
-        "Defense": {
-            "list": [
-                {
-                    "english": "Ikkyō",
-                    "japanese": "一級"
-                },
-                {
-                    "english": "Nikyō",
-                    "japanese": "二級"
-                },
-                {
-                    "english": "Sankyō",
-                    "japanese": "三級"
-                },
-                {
-                    "english": "Yonkyō",
-                    "japanese": "四教"
-                },
-                {
-                    "english": "Gokyō",
-                    "japanese": "五級"
-                },
-                {
-                    "english": "Rokkyō",
-                    "japanese": "六級"
-                },
-                {
-                    "english": "Iriminage",
-                    "japanese": "入身投げ"
-                },
-                {
-                    "english": "Jūjinage",
-                    "japanese": "十字投げ"
-                },
-                {
-                    "english": "Kaitennage",
-                    "japanese": "回転投げ"
-                },
-                {
-                    "english": "Kokyūnage",
-                    "japanese": "呼吸投げ"
-                },
-                {
-                    "english": "Koshinage",
-                    "japanese": "腰投げ"
-                },
-                {
-                    "english": "Shihōnage",
-                    "japanese": "四方投げ"
-                },
-                {
-                    "english": "Sumiotoshi",
-                    "japanese": "隅落と"
-                },
-                {
-                    "english": "Tenchinage",
-                    "japanese": "天地投げ"
-                }
-            ],
-            "freestyle": {
-                "english": "Jiyūwaza",
-                "japanese": "自由技"
+    "techniques": {
+        "name": "Techniques",
+        "list": [
+            {
+                "english": "Ikkyō",
+                "japanese": "一級"
+            },
+            {
+                "english": "Nikyō",
+                "japanese": "二級"
+            },
+            {
+                "english": "Sankyō",
+                "japanese": "三級"
+            },
+            {
+                "english": "Yonkyō",
+                "japanese": "四教"
+            },
+            {
+                "english": "Gokyō",
+                "japanese": "五級"
+            },
+            {
+                "english": "Rokkyō",
+                "japanese": "六級"
+            },
+            {
+                "english": "Iriminage",
+                "japanese": "入身投げ"
+            },
+            {
+                "english": "Jūjinage",
+                "japanese": "十字投げ"
+            },
+            {
+                "english": "Kaitennage",
+                "japanese": "回転投げ"
+            },
+            {
+                "english": "Kokyūnage",
+                "japanese": "呼吸投げ"
+            },
+            {
+                "english": "Koshinage",
+                "japanese": "腰投げ"
+            },
+            {
+                "english": "Shihōnage",
+                "japanese": "四方投げ"
+            },
+            {
+                "english": "Sumiotoshi",
+                "japanese": "隅落と"
+            },
+            {
+                "english": "Tenchinage",
+                "japanese": "天地投げ"
             }
+        ],
+        "freestyle": {
+            "english": "Jiyūwaza",
+            "japanese": "自由技"
         }
-        },
-        {
-            "Directions": [
-                {
-                    "english": "Irimi",
-                    "japanese": "入り身"
-                },
-                {
-                    "english": "Tenkan",
-                    "japanese": "転換"
-                },
-                {
-                    "english": "Omote",
-                    "japanese": "表"
-                },
-                {
-                    "english": "Ura",
-                    "japanese": "裏"
-                }
-            ]
-        },
-        {
-            "Positions": [
-                {
-                    "english": "Hanmi-handachi",
-                    "japanese": "入り身半身半立ち"
-                },
-                {
-                    "english": "Suwariwaza",
-                    "japanese": "座り技"
-                },
-                {
-                    "english": "Ushiro",
-                    "japanese": "表"
-                }
-            ]
-        }
-    ]
+    },
+    "directions": {
+        "name": "Direction Modifiers",
+        "list": [
+            {
+                "english": "Irimi",
+                "japanese": "入り身"
+            },
+            {
+                "english": "Tenkan",
+                "japanese": "転換"
+            },
+            {
+                "english": "Omote",
+                "japanese": "表"
+            },
+            {
+                "english": "Ura",
+                "japanese": "裏"
+            }
+        ]
+    },
+    "positions": {
+        "name": "Position Modifiers",
+        "list": [
+            {
+                "english": "Hanmi-handachi",
+                "japanese": "入り身半身半立ち"
+            },
+            {
+                "english": "Suwariwaza",
+                "japanese": "座り技"
+            },
+            {
+                "english": "Ushiro",
+                "japanese": "表"
+            }
+        ]
+    }
+}

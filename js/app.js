@@ -40,11 +40,16 @@ function writeList(techniques) {
        //add the set name
        set.querySelector('li').prepend(techniques[techniqueSet].name);
 
-       for (const techniqueItem in techniques[techniqueSet]) {
+       for (const techniqueItem in techniques[techniqueSet].list) {
         //clone the new item template
         const item = tItem.content.cloneNode(true);
 
-        console.log(techniques[techniqueSet].list)
+        //console.log(techniques[techniqueSet].list[techniqueItem]);
+
+        item.querySelector('.english').append(techniques[techniqueSet].list[techniqueItem].english);
+        item.querySelector('.japanese').append(techniques[techniqueSet].list[techniqueItem].japanese);
+
+        set.querySelector('.technique-list').append(item);
 
        }
 

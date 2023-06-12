@@ -68,3 +68,36 @@ function writeList(techniques) {
   }
 }
 
+
+
+if ('speechSynthesis' in window) {
+  // Speech Synthesis supported
+
+
+var jap = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+//jap.voice = voices[2]; 
+jap.volume = 1; // From 0 to 1
+jap.rate = .9; // From 0.1 to 10
+jap.pitch = 1.3; // From 0 to 2
+jap.text = "片手取り両手持ち";
+jap.lang = 'ja-JP';
+speechSynthesis.speak(jap);
+
+
+var eng = new SpeechSynthesisUtterance();
+//var voices = window.speechSynthesis.getVoices();
+//eng.voice = voices[2]; 
+eng.volume = 1; // From 0 to 1
+eng.rate = .9; // From 0.1 to 10
+eng.pitch = 1.3; // From 0 to 2
+eng.text = "Katatedori Ryōtemochi";
+eng.lang = 'en-US';
+speechSynthesis.speak(eng);
+
+
+
+ }else{
+   // Speech Synthesis Not Supported
+   //alert("Sorry, your browser doesn't support text to speech!");
+ }

@@ -20,8 +20,7 @@ fetchTechniques().then(techniques => {
 function writeList(techniques) {
 
   
-  // Test to see if the browser supports the HTML template element by checking
-  // for the presence of the template element's content attribute.
+  // Test to see if the browser supports the HTML template element by checking, for the presence of the template element's content attribute.
   if ('content' in document.createElement('template')) {
     // Instantiate the table with the existing HTML tbody
     // and the row with the template
@@ -49,22 +48,31 @@ function writeList(techniques) {
         item.querySelector('.english').append(techniques[techniqueSet].list[techniqueItem].english);
         item.querySelector('.japanese').append(techniques[techniqueSet].list[techniqueItem].japanese);
 
-        set.querySelector('.technique-list').append(item);
+
+       var rateModifier = 1;
+
+        if (techniques[techniqueSet].list[techniqueItem].rate){
+          rateModifier = techniques[techniqueSet].list[techniqueItem].rate;
+        }
+
+        //console.log(rateModifier)
+
+        for(let i = 0; i < rateModifier; i++){
+          console.log(techniques[techniqueSet].list[techniqueItem].english);
+          set.querySelector('.technique-list').append(item);
+        }
+        
 
        }
 
        list.appendChild(set);
-      
+    
 
     }
 
-
-
-
   } else {
     console.log('no templates');
-    // Find another way to add the rows to the table because
-    // the HTML template element is not supported.
+    // Find another way to add the rows to the table, because the HTML template element is not supported.
   }
 }
 
@@ -73,27 +81,20 @@ function writeList(techniques) {
 if ('speechSynthesis' in window) {
   // Speech Synthesis supported
 
+  var jap = new SpeechSynthesisUtterance();
+  //var voices = window.speechSynthesis.getVoices();
 
-var jap = new SpeechSynthesisUtterance();
-var voices = window.speechSynthesis.getVoices();
-//jap.voice = voices[2]; 
-jap.volume = 1; // From 0 to 1
-jap.rate = .9; // From 0.1 to 10
-jap.pitch = 1.3; // From 0 to 2
-jap.text = "片手取り両手持ち";
-jap.lang = 'ja-JP';
-speechSynthesis.speak(jap);
+  //console.log(voices);
 
 
-var eng = new SpeechSynthesisUtterance();
-//var voices = window.speechSynthesis.getVoices();
-//eng.voice = voices[2]; 
-eng.volume = 1; // From 0 to 1
-eng.rate = .9; // From 0.1 to 10
-eng.pitch = 1.3; // From 0 to 2
-eng.text = "Katatedori Ryōtemochi";
-eng.lang = 'en-US';
-speechSynthesis.speak(eng);
+  //jap.voice = voices[2]; 
+  jap.volume = 1; // From 0 to 1
+  jap.rate = 1; // From 0.1 to 10
+  jap.pitch = 1; // From 0 to 2
+  jap.text = "片手取り両手持ち";
+  jap.lang = 'ja-JP';
+  //speechSynthesis.speak(jap);
+
 
 
 

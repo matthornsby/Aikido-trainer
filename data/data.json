@@ -4,43 +4,53 @@
         "list": [
             {
                 "english": "Katadori",
-                "japanese": "肩取り"
+                "japanese": "肩取り",
+                "rate": 1
             },
             {
                 "english": "Katatedori",
-                "japanese": "片手取り"
+                "japanese": "片手取り",
+                "rate": 3
             },
             {
                 "english": "Katatedori Ryōtemochi",
-                "japanese": "片手取り両手持ち"
+                "japanese": "片手取り両手持ち",
+                "rate": 1
             },
             {
                 "english": "Kōsadori",
-                "japanese": "交差取り"
+                "japanese": "交差取り",
+                "rate": 2
             },
             {
                 "english": "Kubijime",
-                "japanese": "首締め"
+                "japanese": "首締め",
+                "rate": 1
             },
             {
                 "english": "Munetsuki",
-                "japanese": "胸突き"
+                "japanese": "胸突き",
+                "rate": 5
             },
             {
                 "english": "Ryōkatadori",
-                "japanese": "両肩取り"
+                "japanese": "両肩取り",
+                "rate": 2
             },
             {
                 "english": "Ryōtedori",
-                "japanese": "両手取り"
+                "japanese": "両手取り",
+                "rate": 2
             },
             {
                 "english": "Shōmen-uchi",
-                "japanese": "正面打ち"
+                "japanese": "正面打ち",
+                "rate": 5
             },
             {
                 "english": "Yokomen-uchi",
-                "japanese": "横面打ち"
+                "japanese": "横面打ち",
+                "rate": 5
             }
         ],
         "freestyle": {
@@ -53,59 +63,73 @@
         "list": [
             {
                 "english": "Ikkyō",
-                "japanese": "一級"
+                "japanese": "一級",
+                "rate": "3"
             },
             {
                 "english": "Nikyō",
-                "japanese": "二級"
+                "japanese": "二級",
+                "rate": 3
             },
             {
                 "english": "Sankyō",
-                "japanese": "三級"
+                "japanese": "三級",
+                "rate": 3
             },
             {
                 "english": "Yonkyō",
-                "japanese": "四教"
+                "japanese": "四教",
+                "rate": 3
             },
             {
                 "english": "Gokyō",
-                "japanese": "五級"
+                "japanese": "五級",
+                "rate": 1
             },
             {
                 "english": "Rokkyō",
-                "japanese": "六級"
+                "japanese": "六級",
+                "rate": 1
             },
             {
                 "english": "Iriminage",
-                "japanese": "入身投げ"
+                "japanese": "入身投げ",
+                "rate": 3
             },
             {
                 "english": "Jūjinage",
-                "japanese": "十字投げ"
+                "japanese": "十字投げ",
+                "rate": 1
             },
             {
                 "english": "Kaitennage",
-                "japanese": "回転投げ"
+                "japanese": "回転投げ",
+                "rate": 2
             },
             {
                 "english": "Kokyūnage",
-                "japanese": "呼吸投げ"
+                "japanese": "呼吸投げ",
+                "rate": 3
             },
             {
                 "english": "Koshinage",
-                "japanese": "腰投げ"
+                "japanese": "腰投げ",
+                "rate": "1"
             },
             {
                 "english": "Shihōnage",
-                "japanese": "四方投げ"
+                "japanese": "四方投げ",
+                "rate": "3"
             },
             {
                 "english": "Sumiotoshi",
-                "japanese": "隅落と"
+                "japanese": "隅落と",
+                "rate": 2
             },
             {
                 "english": "Tenchinage",
-                "japanese": "天地投げ"
+                "japanese": "天地投げ",
+                "rate": 2
             }
         ],
         "freestyle": {

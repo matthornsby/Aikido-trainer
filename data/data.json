@@ -68,12 +68,12 @@
             },
             {
                 "english": "Nikyō",
-                "japanese": "二級",
+                "japanese": "二教",
                 "rate": 3
             },
             {
                 "english": "Sankyō",
-                "japanese": "三級",
+                "japanese": "六教",
                 "rate": 3
             },
             {
@@ -83,12 +83,12 @@
             },
             {
                 "english": "Gokyō",
-                "japanese": "五級",
+                "japanese": "五教",
                 "rate": 1
             },
             {
                 "english": "Rokkyō",
-                "japanese": "六級",
+                "japanese": "六教",
                 "rate": 1
             },
             {

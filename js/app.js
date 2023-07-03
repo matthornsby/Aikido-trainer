@@ -180,7 +180,7 @@ function speakCards(){
       var cards = document.querySelectorAll('.stack > .stack-item:first-child .japanese');
       
       cards.forEach( function(card){
-        phrase += card.textContent + " ";
+        phrase += card.textContent + "・";
       });
 
       console.log(phrase);

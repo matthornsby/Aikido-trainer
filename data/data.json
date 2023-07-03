@@ -1,5 +1,5 @@
 {
-    "atttacks": {
+    "attacks": {
         "name": "Attacks",
         "list": [
             {
@@ -123,7 +123,7 @@
             },
             {
                 "english": "Sumiotoshi",
-                "japanese": "隅落と",
+                "japanese": "隅落とし",
                 "rate": 2
             },
             {

@@ -1,21 +1,17 @@
 /*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
 /* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
 html {
   color: #222;
   font-size: 1em;
-  line-height: 1.4;
-}
+  line-height: 1.4; }
 
 /*
  * Remove text-shadow in selection highlight:
@@ -23,81 +19,177 @@ html {
  *
  * Customize the background color to match your design.
  */
-
 ::-moz-selection {
   background: #b3d4fc;
-  text-shadow: none;
-}
+  text-shadow: none; }
 
 ::selection {
   background: #b3d4fc;
-  text-shadow: none;
-}
+  text-shadow: none; }
 
 /*
  * A better looking default horizontal rule
  */
-
 hr {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
   margin: 1em 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
-
 audio,
 canvas,
 iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 /*
  * Remove default fieldset styles.
  */
-
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 /*
  * Allow only vertical resizing of textareas.
  */
-
 textarea {
-  resize: vertical;
-}
+  resize: vertical; }
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+/* Root Vars */
+:root {
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --stack-color--attack: orange;
+  --stack-color--response: yellow;
+  --stack-color--direction: white;
+  --stack-color--position: white;
+  --card-background: white; }
 
-   
+body {
+  font-family: var(--system-ui);
+  margin: 0; }
+
+#stacks {
+  margin: 0 auto;
+  width: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
+  #stacks > li {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 1rem 0; }
+  #stacks .stack {
+    padding: 0;
+    display: block;
+    position: relative; }
+    #stacks .stack-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .1ch; }
+    #stacks .stack#attack .stack-item {
+      background-color: var(--stack-color--attack); }
+    #stacks .stack#response .stack-item {
+      background-color: var(--stack-color--response); }
+    #stacks .stack .stack-item {
+      display: block;
+      width: 15rem;
+      height: calc(15rem * 9/16);
+      position: relative;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      border-radius: .1rem;
+      transition: transform .5s; }
+      #stacks .stack .stack-item:not(:first-of-type) {
+        position: absolute;
+        top: 0;
+        z-index: -1; }
+      #stacks .stack .stack-item:nth-child(n+4) {
+        opacity: 0; }
+      #stacks .stack .stack-item button {
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: block; }
+      #stacks .stack .stack-item span {
+        display: block; }
+        #stacks .stack .stack-item span[lang='en-US'], #stacks .stack .stack-item span[lang='ja-JP'] {
+          position: absolute;
+          width: calc(100% - 2rem);
+          left: 50%;
+          transform: translateX(-50%); }
+        #stacks .stack .stack-item span[lang='en-US'] {
+          font-size: 1.2rem;
+          bottom: 52%; }
+        #stacks .stack .stack-item span[lang='ja-JP'] {
+          font-size: .8rem;
+          opacity: .6;
+          top: 52%;
+          font-weight: 600;
+          letter-spacing: .1ch; }
+
+#new-cards button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  position: relative; }
+  #new-cards button::before {
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 5rem;
+    height: calc(5rem * 9/16);
+    background-color: var(--stack-color--attack);
+    border-radius: .05rem;
+    transform: rotate(5deg) translateX(-30%); }
+  #new-cards button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 5rem;
+    height: calc(5rem * 9/16);
+    background-color: var(--stack-color--response);
+    border-radius: .05rem;
+    transform: rotate(-5deg) translateX(30%) translateY(15%); }
 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
 /*
  * Hide visually and from screen readers
  */
-
 .hidden,
 [hidden] {
-  display: none !important;
-}
+  display: none !important; }
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -107,7 +199,6 @@ textarea {
  *    causes content to wrap 1 word per line:
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
-
 .visually-hidden {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -118,15 +209,13 @@ textarea {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  /* 1 */
-}
+  /* 1 */ }
 
 /*
  * Extends the .visually-hidden class to allow the element
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
-
 .visually-hidden.focusable:active,
 .visually-hidden.focusable:focus {
   clip: auto;
@@ -135,16 +224,13 @@ textarea {
   overflow: visible;
   position: static;
   white-space: inherit;
-  width: auto;
-}
+  width: auto; }
 
 /*
  * Hide visually and from screen readers, but maintain layout
  */
-
 .invisible {
-  visibility: hidden;
-}
+  visibility: hidden; }
 
 /*
  * Clearfix: contain floats
@@ -152,40 +238,30 @@ textarea {
  * The use of `table` rather than `block` is only necessary if using
  * `::before` to contain the top-margins of child elements.
  */
-
 .clearfix::before,
 .clearfix::after {
   content: "";
-  display: table;
-}
+  display: table; }
 
 .clearfix::after {
-  clear: both;
-}
+  clear: both; }
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-
 @media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
+  /* Style adjustments for viewports that meet the condition */ }
 
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */ }
 
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
    https://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
-
 @media print {
   *,
   *::before,
@@ -194,56 +270,37 @@ textarea {
     color: #000 !important;
     /* Black prints faster */
     box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
+    text-shadow: none !important; }
   a,
   a:visited {
-    text-decoration: underline;
-  }
-
+    text-decoration: underline; }
   a[href]::after {
-    content: " (" attr(href) ")";
-  }
-
+    content: " (" attr(href) ")"; }
   abbr[title]::after {
-    content: " (" attr(title) ")";
-  }
-
+    content: " (" attr(title) ")"; }
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
   a[href^="#"]::after,
   a[href^="javascript:"]::after {
-    content: "";
-  }
-
+    content: ""; }
   pre {
-    white-space: pre-wrap !important;
-  }
-
+    white-space: pre-wrap !important; }
   pre,
   blockquote {
     border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
+    page-break-inside: avoid; }
   tr,
   img {
-    page-break-inside: avoid;
-  }
-
+    page-break-inside: avoid; }
   p,
   h2,
   h3 {
     orphans: 3;
-    widows: 3;
-  }
-
+    widows: 3; }
   h2,
   h3 {
-    page-break-after: avoid;
-  }
-}
+    page-break-after: avoid; } }
 
+/*# sourceMappingURL=style.css.map */

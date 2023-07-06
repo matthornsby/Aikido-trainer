@@ -75,19 +75,27 @@ textarea {
   --stack-color--response: yellow;
   --stack-color--direction: white;
   --stack-color--position: white;
-  --card-background: white; }
+  --card-background: white;
+  --card-angle: 0deg; }
+
+html {
+  font-size: 130%; }
 
 body {
   font-family: var(--system-ui);
-  margin: 0; }
+  margin: 0;
+  padding: 0; }
 
 #stacks {
   margin: 0 auto;
   width: auto;
   padding: 0;
+  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center; }
   #stacks > li {
     display: flex;
@@ -111,15 +119,26 @@ body {
       width: 15rem;
       height: calc(15rem * 9/16);
       position: relative;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0px 2px rgba(0, 0, 0, 0.4);
       border-radius: .1rem;
-      transition: transform .5s; }
+      transition: transform .1s;
+      transform: rotate(var(--card-angle)); }
       #stacks .stack .stack-item:not(:first-of-type) {
         position: absolute;
-        top: 0;
-        z-index: -1; }
-      #stacks .stack .stack-item:nth-child(n+4) {
-        opacity: 0; }
+        top: 0; }
+      #stacks .stack .stack-item:nth-of-type(2) {
+        transform: scale(0.97) translateY(-0.2rem) rotate(var(--card-angle));
+        z-index: -2; }
+      #stacks .stack .stack-item:nth-of-type(3) {
+        transform: scale(0.94) translateY(-0.4rem) rotate(var(--card-angle));
+        z-index: -3; }
+      #stacks .stack .stack-item:nth-of-type(4) {
+        transform: scale(0.91) translateY(-0.6rem) rotate(var(--card-angle));
+        z-index: -4; }
+      #stacks .stack .stack-item:nth-of-type(n+5) {
+        opacity: 0;
+        transform: scale(0.88) translateY(-0.8rem) rotate(var(--card-angle));
+        z-index: -5; }
       #stacks .stack .stack-item button {
         background: none;
         color: inherit;

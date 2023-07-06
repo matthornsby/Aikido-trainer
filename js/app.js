@@ -91,7 +91,7 @@ function rotateStacks (){
     //console.log(Math.round(rotate));
     
     //rotate each card just a little
-    cards[i].style.transform = `rotate(${ rotate }deg)`;
+    cards[i].style.setProperty('--card-angle', `${ rotate }deg`);
 
   }
 
@@ -180,7 +180,7 @@ function speakCards(){
       var cards = document.querySelectorAll('.stack > .stack-item:first-child .japanese');
       
       cards.forEach( function(card){
-        phrase += card.textContent + ". ";
+        phrase += card.textContent + ", ";
       });
 
       console.log(phrase);

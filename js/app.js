@@ -152,10 +152,11 @@ function speak(phrase){
   if ('speechSynthesis' in window) {
     // Speech Synthesis supported
   
-    var jap = new SpeechSynthesisUtterance();
+    const jap = new SpeechSynthesisUtterance();
     //var voices = window.speechSynthesis.getVoices();
-  
-    //console.log(voices);
+
+    //clear the queue so phrases don't stack up pn repeat
+    speechSynthesis.cancel();
   
     //voice config
     //jap.voice = voices[2]; 

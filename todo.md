@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Aikido Trainer</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+
+  <link rel="stylesheet" href="css/style.css">
+
+  
+
+
+ 
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+<ul id="stacks">
+        <li>
+            <h2 class="stack-label">Attacks</h2>
+            <ul class="stack" id="attack">
+                <li class="stack-item"><span class="english" lang="en-US">Katadori</span> <span class="japanese" lang="ja-JP">肩取り</span></li>
+                <li class="stack-item"><span class="english" lang="en-US">Katatedori</span> <span class="japanese" lang="ja-JP">片手取り</span></li>
+            </ul>
+        </li>
+        
+        <li>
+            <h2 class="stack-label">Responses</h2>
+            <ul class="stack" id="response">
+                <li class="stack-item"><span class="english" lang="en-US">Ikkyō</span> <span class="japanese" lang="ja-JP">一級</span></li>
+                <li class="stack-item"><span class="english" lang="en-US">Nikyō</span> <span class="japanese" lang="ja-JP">二級</span></li>
+            </ul>
+        </li>
+        <li id="new-cards">
+            <button type="button"></button>
+        </li>
+        <!--
+        <li>
+            <h2 class="stack-label">Direction Modifiers</h2>
+            <ul class="stack" id="direction">
+                <li class="stack-item"><span class="english" lang="en-US">Irimi</span> <span class="japanese" lang="ja-JP">入り身</span></li>
+                <li class="stack-item"><span class="english" lang="en-US">Tenkan</span> <span class="japanese" lang="ja-JP">転換</span></li>
+            </ul>
+        </li>
+        <li>
+            <h2 class="stack-label">Posotion Modifiers</h2>
+            <ul class="stack" id="position">
+                <li class="stack-item"><span class="english" lang="en-US">Hanmi-handachi</span> <span class="japanese" lang="ja-JP">入り身半身半立ち</span></li>
+                <li class="stack-item"><span class="english" lang="en-US">Suwariwaza</span> <span class="japanese" lang="ja-JP">座り技</span></li>
+            </ul>
+        </li>
+    -->
+    </ul>
+
+  
+
+    
+
+    
+
+    
+
+
+<!-- React scripts -->    
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+
+<!-- Don't use this in production: -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+<script src="js/app.js" type="text/babel"></script>
+
+</body>
+
+</html>

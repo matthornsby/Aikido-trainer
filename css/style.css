@@ -79,7 +79,8 @@ textarea {
   --card-angle: 0deg; }
 
 html {
-  font-size: 130%; }
+  font-size: 130%;
+  min-height: -webkit-fill-available; }
 
 body {
   font-family: var(--system-ui);
@@ -92,6 +93,7 @@ body {
   padding: 0;
   overflow: hidden;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   align-items: center;

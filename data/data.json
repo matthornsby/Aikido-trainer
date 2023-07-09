@@ -5,51 +5,61 @@
             {
                 "english": "Katadori",
                 "japanese": "肩取り",
+                "id": 1,
                 "rate": 1
             },
             {
                 "english": "Katatedori",
                 "japanese": "片手取り",
+                "id": 2,
                 "rate": 3
             },
             {
                 "english": "Katatedori Ryōtemochi",
                 "japanese": "片手取り両手持ち",
+                "id": 3,
                 "rate": 1
             },
             {
                 "english": "Kōsadori",
                 "japanese": "交差取り",
+                "id": 4,
                 "rate": 2
             },
             {
                 "english": "Kubijime",
                 "japanese": "首締め",
+                "id": 5,
                 "rate": 1
             },
             {
                 "english": "Munetsuki",
                 "japanese": "胸突き",
+                "id": 6,
                 "rate": 5
             },
             {
                 "english": "Ryōkatadori",
                 "japanese": "両肩取り",
+                "id": 7,
                 "rate": 2
             },
             {
                 "english": "Ryōtedori",
                 "japanese": "両手取り",
+                "id": 8,
                 "rate": 2
             },
             {
                 "english": "Shōmen-uchi",
                 "japanese": "正面打ち",
+                "id": 9,
                 "rate": 5
             },
             {
                 "english": "Yokomen-uchi",
                 "japanese": "横面打ち",
+                "id": 10,
                 "rate": 5
             }
         ],
@@ -64,72 +74,86 @@
             {
                 "english": "Ikkyō",
                 "japanese": "一教",
+                "id": 1,
                 "speak": "一挙",
                 "rate": "3"
             },
             {
                 "english": "Nikyō",
                 "japanese": "二教",
+                "id": 2,
                 "rate": 3
             },
             {
                 "english": "Sankyō",
                 "japanese": "三教",
+                "id": 3,
                 "rate": 3
             },
             {
                 "english": "Yonkyō",
                 "japanese": "四教",
+                "id": 4,
                 "rate": 3
             },
             {
                 "english": "Gokyō",
                 "japanese": "五教",
+                "id": 5,
                 "rate": 1
             },
             {
                 "english": "Rokkyō",
                 "japanese": "六教",
+                "id": 6,
                 "rate": 1
             },
             {
                 "english": "Iriminage",
                 "japanese": "入身投げ",
+                "id": 7,
                 "rate": 3
             },
             {
                 "english": "Jūjinage",
                 "japanese": "十字投げ",
+                "id": 8,
                 "rate": 1
             },
             {
                 "english": "Kaitennage",
                 "japanese": "回転投げ",
+                "id": 9,
                 "rate": 2
             },
             {
                 "english": "Kokyūnage",
                 "japanese": "呼吸投げ",
+                "id": 10,
                 "rate": 3
             },
             {
                 "english": "Koshinage",
                 "japanese": "腰投げ",
+                "id": 11,
                 "rate": "1"
             },
             {
                 "english": "Shihōnage",
                 "japanese": "四方投げ",
+                "id": 12,
                 "rate": "3"
             },
             {
                 "english": "Sumiotoshi",
                 "japanese": "隅落とし",
+                "id": 13,
                 "rate": 2
             },
             {
                 "english": "Tenchinage",
                 "japanese": "天地投げ",
+                "id": 14,
                 "rate": 2
             }
         ],
@@ -143,19 +167,23 @@
         "list": [
             {
                 "english": "Irimi",
-                "japanese": "入り身"
+                "japanese": "入り身",
+                "id": 1,
             },
             {
                 "english": "Tenkan",
-                "japanese": "転換"
+                "japanese": "転換",
+                "id": 2,
             },
             {
                 "english": "Omote",
-                "japanese": "表"
+                "japanese": "表",
+                "id": 3,
             },
             {
                 "english": "Ura",
-                "japanese": "裏"
+                "japanese": "裏",
+                "id": 3,
             }
         ]
     },
@@ -164,15 +192,18 @@
         "list": [
             {
                 "english": "Hanmi-handachi",
-                "japanese": "入り身半身半立ち"
+                "japanese": "入り身半身半立ち",
+                "id": 1,
             },
             {
                 "english": "Suwariwaza",
-                "japanese": "座り技"
+                "japanese": "座り技",
+                "id": 2,
             },
             {
                 "english": "Ushiro",
-                "japanese": "表"
+                "japanese": "表",
+                "id": 3,
             }
         ]
     }

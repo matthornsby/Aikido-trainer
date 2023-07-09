@@ -24,42 +24,83 @@
 </head>
 
 <body>
-<ul id="stacks">
-        <li>
-            <h2 class="stack-label">Attacks</h2>
-            <ul class="stack" id="attack">
-                <li class="stack-item"><span class="english" lang="en-US">Katadori</span> <span class="japanese" lang="ja-JP">肩取り</span></li>
-                <li class="stack-item"><span class="english" lang="en-US">Katatedori</span> <span class="japanese" lang="ja-JP">片手取り</span></li>
-            </ul>
-        </li>
-        
-        <li>
-            <h2 class="stack-label">Responses</h2>
-            <ul class="stack" id="response">
-                <li class="stack-item"><span class="english" lang="en-US">Ikkyō</span> <span class="japanese" lang="ja-JP">一級</span></li>
-                <li class="stack-item"><span class="english" lang="en-US">Nikyō</span> <span class="japanese" lang="ja-JP">二級</span></li>
-            </ul>
-        </li>
-        <li id="new-cards">
-            <button type="button"></button>
-        </li>
-        <!--
-        <li>
-            <h2 class="stack-label">Direction Modifiers</h2>
-            <ul class="stack" id="direction">
-                <li class="stack-item"><span class="english" lang="en-US">Irimi</span> <span class="japanese" lang="ja-JP">入り身</span></li>
-                <li class="stack-item"><span class="english" lang="en-US">Tenkan</span> <span class="japanese" lang="ja-JP">転換</span></li>
-            </ul>
-        </li>
-        <li>
-            <h2 class="stack-label">Posotion Modifiers</h2>
-            <ul class="stack" id="position">
-                <li class="stack-item"><span class="english" lang="en-US">Hanmi-handachi</span> <span class="japanese" lang="ja-JP">入り身半身半立ち</span></li>
-                <li class="stack-item"><span class="english" lang="en-US">Suwariwaza</span> <span class="japanese" lang="ja-JP">座り技</span></li>
-            </ul>
-        </li>
-    -->
+<section id="app">
+    <ul id="stacks">
+            <li>
+                <h2 class="stack-label">Attacks</h2>
+                <ul class="stack" id="attack">
+                    <li class="stack-item"><span class="english" lang="en-US">Katadori</span> <span class="japanese" lang="ja-JP">肩取り</span></li>
+                    <li class="stack-item"><span class="english" lang="en-US">Katatedori</span> <span class="japanese" lang="ja-JP">片手取り</span></li>
+                </ul>
+            </li>
+            
+            <li>
+                <h2 class="stack-label">Responses</h2>
+                <ul class="stack" id="response">
+                    <li class="stack-item"><span class="english" lang="en-US">Ikkyō</span> <span class="japanese" lang="ja-JP">一級</span></li>
+                    <li class="stack-item"><span class="english" lang="en-US">Nikyō</span> <span class="japanese" lang="ja-JP">二級</span></li>
+                </ul>
+            </li>
+            <li id="new-cards">
+                <button type="button"></button>
+            </li>
+            <!--
+            <li>
+                <h2 class="stack-label">Direction Modifiers</h2>
+                <ul class="stack" id="direction">
+                    <li class="stack-item"><span class="english" lang="en-US">Irimi</span> <span class="japanese" lang="ja-JP">入り身</span></li>
+                    <li class="stack-item"><span class="english" lang="en-US">Tenkan</span> <span class="japanese" lang="ja-JP">転換</span></li>
+                </ul>
+            </li>
+            <li>
+                <h2 class="stack-label">Posotion Modifiers</h2>
+                <ul class="stack" id="position">
+                    <li class="stack-item"><span class="english" lang="en-US">Hanmi-handachi</span> <span class="japanese" lang="ja-JP">入り身半身半立ち</span></li>
+                    <li class="stack-item"><span class="english" lang="en-US">Suwariwaza</span> <span class="japanese" lang="ja-JP">座り技</span></li>
+                </ul>
+            </li>
+        -->
     </ul>
+</section>
+
+<section id="settings">
+    <h1>Settings</h1>
+    <ul class="settings">
+        <li>
+            <h2 class="settings-label">Attacks</h2>
+            <ul class="settings-set">
+                <li class="settings-set-item">
+                    <label for="attacks-1">Katadori</label>
+                    <input name="attacks-1" id="attacks-1" type="checkbox" checked>
+                    <span class="toggle"></span>
+                </li>
+                <li class="settings-set-item">
+                    <label for="attacks-2">Katatedori</label>
+                    <input name="attacks-2" id="attacks-2" type="checkbox" checked>
+                    <span class="toggle"></span>
+                </li>
+            </ul>
+            <p class="settings-note">At least two attacks must be enabled.</p>
+        </li>
+        <li>
+            <h2 class="settings-label">Responses</h2>
+            <ul class="settings-set">
+                <li class="settings-set-item">
+                    <label for="responses-1">Ikkyō</label>
+                    <input name="responses-1" id="responses-1" type="checkbox" checked>
+                    <span class="toggle"></span>
+                </li>
+                <li class="settings-set-item">
+                    <label for="responses-2">Nikyō</label>
+                    <input name="responses-2" id="responses-2" type="checkbox" checked>
+                    <span class="toggle"></span>
+                </li>
+            </ul>
+            <p class="settings-note">At least two responses must be enabled.</p>
+        </li>
+    </ul>
+
+</section>
 
   
 
@@ -67,7 +108,6 @@
 
     
 
-    
 
 
 <!-- React scripts -->    

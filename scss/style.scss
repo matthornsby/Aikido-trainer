@@ -112,15 +112,26 @@ textarea {
 
   }
 
+  #app, #settings{
+    outline: solid 1px red;
+    margin: 0;
+    overflow: hidden;
+
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
   #stacks{
     margin: 0 auto;
     width: auto;
     padding: 0;
     overflow: hidden;
 
-    
+
     min-height: 100vh;
     min-height: -webkit-fill-available;
+    
+    
     
     display: flex;
     flex-direction: column;
@@ -287,6 +298,58 @@ textarea {
         border-radius: .05rem;
     
         transform: rotate(-5deg) translateX(30%) translateY(15%);
+      }
+    }
+  }
+
+  #settings{
+    max-width: 25rem;
+    margin: 0 auto;
+
+    h1{
+      text-align: center;
+    }
+
+    .settings{
+      & > li{
+        &:not(:last-child){
+          margin: 0 0 2rem 0;
+        }
+      }
+      list-style-type: none;
+      padding: 0;
+      
+      &-label{
+        font-size: .7rem;
+        text-transform: uppercase;
+        letter-spacing: .1ch;
+        font-weight: 500;
+        padding-left: .75rem;
+        margin: .25rem 0;
+      }
+      &-note{
+        padding-left: .75rem;
+        margin: .25rem 0;
+        font-size: .7rem;
+        letter-spacing: .02ch;
+      }
+
+      &-set{
+        list-style-type: none;
+        padding: .125rem 0;
+        border-radius: .25rem;
+        overflow: hidden;
+        margin: .25rem 0;
+
+        background-color: rgba(0,0,0,.1);
+
+        &-item{
+          padding: .5rem .5rem .5rem 0;
+          margin-left: .75rem;
+          &:not(:first-of-type){
+            border-top: solid 1px rgba(0,0,0,.1);
+          }
+        }
       }
     }
   }

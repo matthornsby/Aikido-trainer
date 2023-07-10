@@ -168,22 +168,22 @@
             {
                 "english": "Irimi",
                 "japanese": "入り身",
-                "id": 1,
+                "id": 1
             },
             {
                 "english": "Tenkan",
                 "japanese": "転換",
-                "id": 2,
+                "id": 2
             },
             {
                 "english": "Omote",
                 "japanese": "表",
-                "id": 3,
+                "id": 3
             },
             {
                 "english": "Ura",
                 "japanese": "裏",
-                "id": 3,
+                "id": 3
             }
         ]
     },
@@ -193,17 +193,17 @@
             {
                 "english": "Hanmi-handachi",
                 "japanese": "入り身半身半立ち",
-                "id": 1,
+                "id": 1
             },
             {
                 "english": "Suwariwaza",
                 "japanese": "座り技",
-                "id": 2,
+                "id": 2
             },
             {
                 "english": "Ushiro",
                 "japanese": "表",
-                "id": 3,
+                "id": 3
             }
         ]
     }

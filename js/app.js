@@ -17,12 +17,11 @@ async function fetchTechniques() {
 fetchTechniques().then(techniques => {
   //console.log(techniques);
   
-  writeStack(techniques.attacks, '#attack');
-  writeStack(techniques.techniques, '#response');
+  //app
+  writeStack(techniques.attacks,  '#attack');
+  writeStack(techniques.techniques,  '#response');
 
   rotateStacks();
-
-
 
   var cards = document.querySelectorAll('.stack-item button');
   
@@ -38,6 +37,10 @@ fetchTechniques().then(techniques => {
       
     } );
   });
+
+  //settings
+  writeSettings(techniques.attacks, 'attacks', '#settings-attacks .settings-set');
+  writeSettings(techniques.techniques, 'responses', '#settings-responses .settings-set');
 
   }
 );
@@ -70,9 +73,26 @@ function writeStack(data, element) {
     );
 
   }
-
   ReactDOM.render(<Attacks/>, list);
+}
 
+function writeSettings(data, key, element) {
+
+  const list = document.querySelector(element);
+
+  function Settings() {
+    //console.log(techniques.attacks.list);
+    
+    return data.list.map(technique =>
+      <li class="settings-set-item toggle-component">
+        <label for="{key}-{technique.id}" class="toggle-label">{technique.english}</label>
+        <input name="{key}-{technique.id}" id="{key}-{technique.id}" type="checkbox" class="toggle-checkbox" ></input>
+        <span class="toggle-switch"></span>
+        </li>
+    );
+
+  }
+  ReactDOM.render(<Settings/>, list);
 }
 
 function rotateStacks (){

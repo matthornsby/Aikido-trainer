@@ -29,16 +29,12 @@
             <li>
                 <h2 class="stack-label">Attacks</h2>
                 <ul class="stack" id="attack">
-                    <li class="stack-item"><span class="english" lang="en-US">Katadori</span> <span class="japanese" lang="ja-JP">肩取り</span></li>
-                    <li class="stack-item"><span class="english" lang="en-US">Katatedori</span> <span class="japanese" lang="ja-JP">片手取り</span></li>
                 </ul>
             </li>
             
             <li>
                 <h2 class="stack-label">Responses</h2>
                 <ul class="stack" id="response">
-                    <li class="stack-item"><span class="english" lang="en-US">Ikkyō</span> <span class="japanese" lang="ja-JP">一級</span></li>
-                    <li class="stack-item"><span class="english" lang="en-US">Nikyō</span> <span class="japanese" lang="ja-JP">二級</span></li>
                 </ul>
             </li>
             <li id="new-cards">
@@ -66,7 +62,7 @@
 <section id="settings">
     <h1>Settings</h1>
     <ul class="settings">
-        <li>
+        <li id="settings-attacks">
             <h2 class="settings-label">Attacks</h2>
             <ul class="settings-set">
                 <li class="settings-set-item">
@@ -82,18 +78,18 @@
             </ul>
             <p class="settings-note">At least two attacks must be enabled.</p>
         </li>
-        <li>
+        <li id="settings-responses">
             <h2 class="settings-label">Responses</h2>
             <ul class="settings-set">
                 <li class="settings-set-item">
                     <label for="responses-1">Ikkyō</label>
                     <input name="responses-1" id="responses-1" type="checkbox" checked>
-                    <span class="toggle"></span>
+                    <span class="toggle-switch"></span>
                 </li>
                 <li class="settings-set-item">
                     <label for="responses-2">Nikyō</label>
                     <input name="responses-2" id="responses-2" type="checkbox" checked>
-                    <span class="toggle"></span>
+                    <span class="toggle-switch"></span>
                 </li>
             </ul>
             <p class="settings-note">At least two responses must be enabled.</p>
@@ -101,12 +97,6 @@
     </ul>
 
 </section>
-
-  
-
-    
-
-    
 
 
 

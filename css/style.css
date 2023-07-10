@@ -243,6 +243,36 @@ body {
         margin-left: .75rem; }
         #settings .settings-set-item:not(:first-of-type) {
           border-top: solid 1px rgba(0, 0, 0, 0.1); }
+        #settings .settings-set-item.toggle-component {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+
+.toggle-component .toggle-checkbox ~ .toggle-switch {
+  background: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.2rem;
+  border-radius: calc(.6rem + 4px);
+  padding: 2px;
+  position: relative; }
+  .toggle-component .toggle-checkbox ~ .toggle-switch::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background-color: white;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%; }
+
+.toggle-component .toggle-checkbox:checked ~ .toggle-switch {
+  background-color: blue; }
+  .toggle-component .toggle-checkbox:checked ~ .toggle-switch::after {
+    content: "";
+    left: auto;
+    right: 2px; }
 
 /* ==========================================================================
    Helper classes

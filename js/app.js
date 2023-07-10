@@ -84,10 +84,12 @@ function writeSettings(data, key, element) {
     //console.log(techniques.attacks.list);
     
     return data.list.map(technique =>
-      <li class="settings-set-item toggle-component">
-        <label for="{key}-{technique.id}" class="toggle-label">{technique.english}</label>
-        <input name="{key}-{technique.id}" id="{key}-{technique.id}" type="checkbox" class="toggle-checkbox" ></input>
-        <span class="toggle-switch"></span>
+      <li class="settings-set-item">
+        <label class="toggle-component">
+          <span class="toggle-lable">{technique.english}</span>
+          <input name="{key}-{technique.id}" id="{key}-{technique.id}" type="checkbox" class="toggle-checkbox" ></input>
+          <span class="toggle-switch"></span>
+        </label>
         </li>
     );
 

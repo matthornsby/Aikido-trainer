@@ -336,7 +336,7 @@ textarea {
 
       &-set{
         list-style-type: none;
-        padding: .125rem 0;
+        padding: 0;
         border-radius: .25rem;
         overflow: hidden;
         margin: .25rem 0;
@@ -346,15 +346,34 @@ textarea {
         &-item{
           padding: .5rem .5rem .5rem 0;
           margin-left: .75rem;
+          position: relative;
+          
           
           &:not(:first-of-type){
             border-top: solid 1px rgba(0,0,0,.1);
           }
+
+          &:focus-within{
+            .toggle-component{
+              background-color: rgba(0,0,0,.1);
+            }
+          }
+          &:focus-within, &:focus-within + * {
+            border-color: transparent;
+          }
         
-          &.toggle-component{
+          .toggle-component{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
+            margin: calc(-.5rem - 1px) -.5rem calc(-.5rem - 1px) -.75rem;
+            padding: .5rem .5rem .5rem .75rem;
+
+            &:active{
+              background-color: rgba(0,0,0,.1);
+            }
+           
           }
           
           
@@ -364,6 +383,13 @@ textarea {
   }
   
   .toggle-component{
+
+    .toggle-label{
+      line-height: 1.1;
+    }
+    .toggle-checkbox{
+      @extend .visually-hidden;
+    }
     .toggle-checkbox ~ .toggle-switch{
       background: rgba(0,0,0,.1);
       display: inline-block;
@@ -372,6 +398,7 @@ textarea {
       border-radius: calc(.6rem + 4px) ;
       padding: 2px;
      // box-sizing: border-box;
+     transition: .25s;
 
       position: relative;
 
@@ -385,15 +412,17 @@ textarea {
         width: 1.2rem;
         height: 1.2rem;
         border-radius: 50%;
+        transition: .1s;
+        
       }
     }
 
     .toggle-checkbox:checked ~ .toggle-switch{
-      background-color: blue;
+      background-color: var(--stack-color--attack);
 
       &::after{
         content: "";
-        left: auto;
+        left: 50%;
         right: 2px;
       }
     }

@@ -6,6 +6,9 @@
     - themes?
 - share setings?
 light/dark mode
+- blob styling?
+    - https://www.blobmaker.app
+    - https://css-tricks.com/blobs/
 - autoplay
     - screen lock on
 - position modifiers

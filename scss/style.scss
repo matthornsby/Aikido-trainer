@@ -96,7 +96,11 @@ textarea {
     --card-background: white;
 
     --card-angle: 0deg;
+
+    --screen-padding: 2vmin;
   }
+
+  $settings-inset: .75rem;
 
   
 
@@ -116,6 +120,7 @@ textarea {
     outline: solid 1px red;
     margin: 0;
     overflow: hidden;
+    padding: var(--screen-padding);
 
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -308,6 +313,21 @@ textarea {
 
     h1{
       text-align: center;
+      margin: 0;
+
+      &::before{
+        font-size: 2.2rem;
+        content: "";
+        display: block;
+        width: .25em;
+        height: 1em;
+        margin: .5rem auto .5rem;
+        //background-color: #ccc;
+        background-image: radial-gradient(ellipse at center, #000 0%, #000 47%, transparent 49%,  transparent 100%);
+        background-repeat: repeat-y;
+        background-size: .33em .33em;
+        background-position: center;
+      }
     }
 
     .settings{
@@ -324,11 +344,10 @@ textarea {
         text-transform: uppercase;
         letter-spacing: .1ch;
         font-weight: 500;
-        padding-left: .75rem;
-        margin: .25rem 0;
+        margin: .25rem $settings-inset;
       }
       &-note{
-        padding-left: .75rem;
+        padding-left: $settings-inset;
         margin: .25rem 0;
         font-size: .7rem;
         letter-spacing: .02ch;
@@ -344,8 +363,8 @@ textarea {
         background-color: rgba(0,0,0,.1);
 
         &-item{
-          padding: .5rem .5rem .5rem 0;
-          margin-left: .75rem;
+          padding: .5rem $settings-inset .5rem 0;
+          margin-left: $settings-inset;
           position: relative;
           
           
@@ -367,8 +386,8 @@ textarea {
             justify-content: space-between;
             align-items: center;
             
-            margin: calc(-.5rem - 1px) -.5rem calc(-.5rem - 1px) -.75rem;
-            padding: .5rem .5rem .5rem .75rem;
+            margin: calc(-.5rem - 1px) calc(-1 * #{$settings-inset}) calc(-.5rem - 1px) calc(-1 * #{$settings-inset});
+            padding: .5rem .5rem .5rem $settings-inset;
 
             &:active{
               background-color: rgba(0,0,0,.1);
@@ -397,8 +416,8 @@ textarea {
       height: 1.2rem;
       border-radius: calc(.6rem + 4px) ;
       padding: 2px;
-     // box-sizing: border-box;
-     transition: .25s;
+      // box-sizing: border-box;
+      transition: .25s;
 
       position: relative;
 
@@ -422,8 +441,7 @@ textarea {
 
       &::after{
         content: "";
-        left: 50%;
-        right: 2px;
+        left: calc(100% - 2px - 1.2rem);
       }
     }
   }

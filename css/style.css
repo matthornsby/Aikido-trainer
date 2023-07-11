@@ -76,7 +76,8 @@ textarea {
   --stack-color--direction: white;
   --stack-color--position: white;
   --card-background: white;
-  --card-angle: 0deg; }
+  --card-angle: 0deg;
+  --screen-padding: 2vmin; }
 
 html {
   font-size: 130%;
@@ -91,6 +92,7 @@ body {
   outline: solid 1px red;
   margin: 0;
   overflow: hidden;
+  padding: var(--screen-padding);
   min-height: 100vh;
   min-height: -webkit-fill-available; }
 
@@ -213,7 +215,19 @@ body {
   max-width: 25rem;
   margin: 0 auto; }
   #settings h1 {
-    text-align: center; }
+    text-align: center;
+    margin: 0; }
+    #settings h1::before {
+      font-size: 2.2rem;
+      content: "";
+      display: block;
+      width: .25em;
+      height: 1em;
+      margin: .5rem auto .5rem;
+      background-image: radial-gradient(ellipse at center, #000 0%, #000 47%, transparent 49%, transparent 100%);
+      background-repeat: repeat-y;
+      background-size: .33em .33em;
+      background-position: center; }
   #settings .settings {
     list-style-type: none;
     padding: 0; }
@@ -224,10 +238,9 @@ body {
       text-transform: uppercase;
       letter-spacing: .1ch;
       font-weight: 500;
-      padding-left: .75rem;
-      margin: .25rem 0; }
+      margin: 0.25rem 0.75rem; }
     #settings .settings-note {
-      padding-left: .75rem;
+      padding-left: 0.75rem;
       margin: .25rem 0;
       font-size: .7rem;
       letter-spacing: .02ch; }
@@ -239,8 +252,8 @@ body {
       margin: .25rem 0;
       background-color: rgba(0, 0, 0, 0.1); }
       #settings .settings-set-item {
-        padding: .5rem .5rem .5rem 0;
-        margin-left: .75rem;
+        padding: 0.5rem 0.75rem 0.5rem 0;
+        margin-left: 0.75rem;
         position: relative; }
         #settings .settings-set-item:not(:first-of-type) {
           border-top: solid 1px rgba(0, 0, 0, 0.1); }
@@ -252,8 +265,8 @@ body {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin: calc(-.5rem - 1px) -0.5rem calc(-.5rem - 1px) -0.75rem;
-          padding: .5rem .5rem .5rem .75rem; }
+          margin: calc(-.5rem - 1px) calc(-1 * 0.75rem) calc(-.5rem - 1px) calc(-1 * 0.75rem);
+          padding: 0.5rem 0.5rem 0.5rem 0.75rem; }
           #settings .settings-set-item .toggle-component:active {
             background-color: rgba(0, 0, 0, 0.1); }
 
@@ -285,8 +298,7 @@ body {
   background-color: var(--stack-color--attack); }
   .toggle-component .toggle-checkbox:checked ~ .toggle-switch::after {
     content: "";
-    left: 50%;
-    right: 2px; }
+    left: calc(100% - 2px - 1.2rem); }
 
 /* ==========================================================================
    Helper classes

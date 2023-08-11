@@ -89,7 +89,6 @@ body {
   padding: 0; }
 
 #app, #settings {
-  outline: solid 1px red;
   margin: 0;
   overflow: hidden;
   padding: var(--screen-padding);

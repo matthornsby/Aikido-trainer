@@ -69,17 +69,29 @@ function writeStack(data, element) {
     shuffle(techniqueList);
     
     return techniqueList.map(attack =>
-      <li class="stack-item"><button type="button"><span class="english" lang="en-US">{attack.english}</span> <span class="japanese" lang="ja-JP">{attack.japanese}</span></button></li>
+      <li class="stack-item" id={"stack-item-" + attack.id}>
+        <button type="button">
+          <span class="english" lang="en-US">{attack.english}</span> 
+          <span class="japanese" lang="ja-JP">{attack.japanese}</span>
+        </button>
+      </li>
     );
 
   }
   ReactDOM.render(<Attacks/>, list);
 }
 
+function handleChange(event){
+  this.setState({selected: !this.state.selected});
+}
+
+
+
 function writeSettings(data, key, element) {
 
   const list = document.querySelector(element);
 
+  
   function Settings() {
     //console.log(techniques.attacks.list);
     
@@ -87,7 +99,14 @@ function writeSettings(data, key, element) {
       <li class="settings-set-item">
         <label class="toggle-component">
           <span class="toggle-lable">{technique.english}</span>
-          <input name="{key}-{technique.id}" id="{key}-{technique.id}" type="checkbox" class="toggle-checkbox" ></input>
+          <input 
+            name={key + "-" + technique.id} 
+            id={key + "-" + technique.id}
+            type="checkbox" 
+            class="toggle-checkbox" 
+            defaultChecked="checked"
+            onChange={e => uncheckItem(e.target)}
+            ></input>
           <span class="toggle-switch"></span>
         </label>
         </li>
@@ -96,6 +115,11 @@ function writeSettings(data, key, element) {
   }
   ReactDOM.render(<Settings/>, list);
 }
+
+function uncheckItem(target){
+  console.log(target.id + " - " + target.checked)
+}
+
 
 function rotateStacks (){
 

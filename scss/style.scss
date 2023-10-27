@@ -444,6 +444,142 @@ textarea {
       }
     }
   }
+
+  .menu{
+    &, & > ul{
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      width: 100%;
+    }
+    &-item{
+      list-style-type: none;
+      min-width: 2rem;
+      height: 2rem;
+      text-align: center;
+      margin: 0.2rem;
+      position: relative;
+
+      border-radius: 50%;
+
+      &:hover{
+        background-color: #ccc;
+      }
+    }
+
+   &-item__toggle{
+    input {
+      display: none;
+    }
+    .menu-toggle{
+
+    }
+   }
+    
+    #menu-speak ~ label .menu-item__toggle-button,
+    #menu-speak ~ label .menu-item__toggle-button::before,
+    #menu-speak ~ label .menu-item__toggle-button::after{
+      position: absolute;
+      
+      background-image: url(../img/speak-sprite.svg);
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      
+    }
+
+    #menu-speak ~ label .menu-item__toggle-button{
+      background-position: center left;
+      top: 15%;
+      right: 15%;
+      bottom: 15%;
+      left: 15%;
+      //outline: solid 1px red;
+    }
+
+    #menu-speak ~ label .menu-item__toggle-button::before,
+    #menu-speak ~ label .menu-item__toggle-button::after{
+       content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-repeat: no-repeat;
+       //outline: solid 1px blue;
+        
+        
+    }
+
+    
+
+    #menu-speak ~ label .menu-item__toggle-button::before{
+      background-position: center center;
+      transform-origin: 25% 50%;
+    }
+    #menu-speak ~ label .menu-item__toggle-button::after{
+      background-position: center right;
+      transform-origin: 75% 50%;
+      
+    }
+
+    #menu-speak:checked ~ label {
+      background-color: red;;
+      .menu-item__toggle-button::before{
+        opacity: 1;
+        scale: 1;
+        transition-delay: .4s;
+        transition: .5s ease-out;
+      }
+      .menu-item__toggle-button::after{
+        opacity: 0;
+        scale: .5;
+        transition-delay: 0s;
+        transition: .5s;
+      }
+      
+    }
+    #menu-speak:not(checked) ~ label {
+      .menu-item__toggle-button::before{
+        opacity: 0;
+        scale: .5;
+        transition-delay: 0s;
+        transition: .0s;
+      }
+      .menu-item__toggle-button::after{
+        opacity: 1;
+        scale: 1;
+        transition-delay: .4s;
+        transition: .5s ease-out;
+
+      }
+    }
+
+    #menu-settings{
+      position: relative;
+      display: block;
+      height: 100%;
+      &::before{
+        position: absolute;
+      
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 1.5rem;
+        content: "";
+        display: block;
+        width: .25em;
+        height: 1em;
+ 
+        //background-color: #ccc;
+        background-image: radial-gradient(ellipse at center, #000 0%, #000 47%, transparent 49%,  transparent 100%);
+        background-repeat: repeat-y;
+        background-size: .33em .33em;
+        background-position: center;
+      }
+
+    }
+  }
   
    
    

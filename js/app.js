@@ -1,4 +1,12 @@
 
+if (localCheck){
+
+  
+ 
+} 
+
+  
+
 
 
 //-------//
@@ -31,6 +39,7 @@ fetchTechniques().then(techniques => {
     
     card.addEventListener('click', function() {
 
+      //discard existing card, reveal new card
       discard(card);
 
       speakCards();
@@ -113,6 +122,9 @@ function writeSettings(data, key, element) {
     );
 
   }
+
+  
+
   ReactDOM.render(<Settings/>, list);
 }
 
@@ -195,31 +207,39 @@ function discard(card){
 
 
 function speak(phrase){
-  if ('speechSynthesis' in window) {
-    // Speech Synthesis supported
-  
-    const jap = new SpeechSynthesisUtterance();
-    //var voices = window.speechSynthesis.getVoices();
 
-    //clear the queue so phrases don't stack up pn repeat
-    speechSynthesis.cancel();
-  
-    //voice config
-    //jap.voice = voices[2]; 
-    jap.volume = 1; // From 0 to 1
-    jap.rate = 1; // From 0.1 to 10
-    jap.pitch = 1; // From 0 to 2
-    jap.lang = 'ja-JP';
-
-    //set the phrase to speak
-    jap.text = phrase;
+  if ( document.querySelector('#menu-speak').checked ){
+    if ('speechSynthesis' in window) {
+      // Speech Synthesis supported
     
-    speechSynthesis.speak(jap);  
+      const jap = new SpeechSynthesisUtterance();
+      //var voices = window.speechSynthesis.getVoices();
   
-   }else{
-     // Speech Synthesis Not Supported
-     console.log('no words for you')
-   }
+      //clear the queue so phrases don't stack up pn repeat
+      speechSynthesis.cancel();
+    
+      //voice config
+      //jap.voice = voices[2]; 
+      jap.volume = 1; // From 0 to 1
+      jap.rate = .9; // From 0.1 to 10
+      jap.pitch = 1.2; // From 0 to 2
+      jap.lang = 'ja-JP';
+  
+      //set the phrase to speak
+      jap.text = phrase;
+      
+      console.log('Speaking');
+      speechSynthesis.speak(jap);  
+    
+     }else{
+       // Speech Synthesis Not Supported
+       console.log('no words for you')
+     }
+  } else {
+    console.log('shhhh')
+  }
+
+  
 }
 
 function speakCards(){
@@ -230,7 +250,34 @@ function speakCards(){
         phrase += card.textContent + ", ";
       });
 
-      console.log(phrase);
-      speak(phrase);
+      //console.log(userSettings);
+
+       speak(phrase);
+       console.log(phrase);
 }
 
+function localCheck(){
+  if (typeof(Storage) !== "undefined") {
+    //supports local storage
+    return true
+    } else {
+    // No web storage Support.
+    return true
+    }
+}
+
+function getLocal(){
+
+}
+
+function setLocal(){
+
+}
+
+function showSettings(){
+  document.querySelector('body').classList.add("set-settings");
+}
+
+function hideSettings(){
+  document.querySelector('body').classList.remove("set-settings");
+}

@@ -16,10 +16,6 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  
-
-
- 
   <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -40,6 +36,17 @@
             <li id="new-cards">
                 <button type="button"></button>
             </li>
+            <li class="menu">
+                <ul>
+                    <li class="menu-item menu-item__toggle">
+                        <input name="menu-speak" id="menu-speak" type="checkbox" checked>
+                        <label for="menu-speak" aria-label="Speak Techniques"><span class="menu-item__toggle-button"></span></label>
+                    </li>
+                    <li class="menu-item menu-item--anchor">
+                        <a href="#settings" id="menu-settings" aria-label="Show Settings"></a>
+                    </li>
+                </ul>
+            </li>
             <!--
             <li>
                 <h2 class="stack-label">Direction Modifiers</h2>
@@ -57,6 +64,7 @@
             </li>
         -->
     </ul>
+    
 </section>
 
 <section id="settings">
@@ -94,7 +102,16 @@
             </ul>
             <p class="settings-note">At least two responses must be enabled.</p>
         </li>
+
+        <li class="menu">
+            <ul>
+                <li class="menu-item menu-item--anchor">
+                    <a href="#app">Hide Settings</a>
+                </li>
+            </ul>
+        </li>
     </ul>
+    
 
 </section>
 

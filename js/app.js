@@ -1,10 +1,31 @@
 
 if (localCheck){
 
-  
- 
+  // if we have local storage, read from anything we saved from before
+  // const items = JSON.parse(localStorage.getItem('items'));
+  // if (items) {
+  //   console.log("Items: " + items);
+  // } else {
+  //   console.log('No items! Setting test items')
+  //   setItems(items);
+  // };
+
 } 
 
+
+function setItems() {
+  console.log('in setItems');
+
+  const testItem = {
+    'test': 'item'
+  }
+
+  localStorage.setItem('items', JSON.stringify(testItem));
+
+  const newItems = JSON.parse(localStorage.getItem('items'));
+  console.log("Items from storage:");
+  console.log(newItems);
+};
   
 
 
@@ -129,7 +150,25 @@ function writeSettings(data, key, element) {
 }
 
 function uncheckItem(target){
-  console.log(target.id + " - " + target.checked)
+  const itemName = target.id;
+  const itemSetting = target.checked;
+
+  // Below writes the setting change to local storage, possibly extract to
+  // its own function
+  console.log(itemName + " - " + itemSetting);
+
+  const newSetting = {
+    [itemName]: itemSetting
+  };
+
+  localStorage.setItem(itemName, JSON.stringify(newSetting));
+  console.log("Item has been set to the following:")
+  console.log(itemName)
+  console.log(newSetting)
+
+  const immediatelyRetrievedItem = JSON.parse(localStorage.getItem(itemName));
+  console.log("Re-reading item has been set for sanity check:")
+  console.log(immediatelyRetrievedItem)
 }
 
 

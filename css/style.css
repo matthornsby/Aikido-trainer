@@ -162,7 +162,8 @@ body {
         right: 0;
         top: 0;
         bottom: 0;
-        display: block; }
+        display: block;
+        width: 100%; }
       #stacks .stack .stack-item span {
         display: block; }
         #stacks .stack .stack-item span[lang='en-US'], #stacks .stack .stack-item span[lang='ja-JP'] {

@@ -1,12 +1,9 @@
 
 if (localCheck){
 
-  
+
  
 } 
-
-  
-
 
 
 //-------//
@@ -57,7 +54,7 @@ fetchTechniques().then(techniques => {
 document.querySelector('#new-cards button').addEventListener('click', function() {
 
   document.querySelectorAll('.stack-item:first-child button').forEach(card => {
-    console.log(card);
+    //console.log(card);
       discard(card);
   });
 
@@ -122,8 +119,6 @@ function writeSettings(data, key, element) {
     );
 
   }
-
-  
 
   ReactDOM.render(<Settings/>, list);
 }

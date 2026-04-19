@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
  
-const sass = require('node-sass');
+const sass = require('sass');
 
 
 grunt.loadNpmTasks('grunt-contrib-watch'); 
@@ -30,5 +30,6 @@ grunt.initConfig({
 });
  
 grunt.registerTask("build", ["sass", "watch"]);
+grunt.registerTask("default", ["sass", "watch"]);
 
 };

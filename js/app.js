@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 let allTechniques = null;
 
@@ -72,10 +74,10 @@ function writeStack(data, key, element) {
     shuffle(techniqueList);
 
     return techniqueList.map(item =>
-      <li class="stack-item" id={"stack-item-" + item.id}>
+      <li className="stack-item" id={"stack-item-" + item.id}>
         <button type="button">
-          <span class="english" lang="en-US">{item.english}</span>
-          <span class="japanese" lang="ja-JP" data-speak={item.speak || item.japanese}>{item.japanese}</span>
+          <span className="english" lang="en-US">{item.english}</span>
+          <span className="japanese" lang="ja-JP" data-speak={item.speak || item.japanese}>{item.japanese}</span>
         </button>
       </li>
     );
@@ -99,18 +101,18 @@ function writeSettings(data, key, element) {
 
   function Settings() {
     return data.list.map(technique =>
-      <li class="settings-set-item">
-        <label class="toggle-component">
-          <span class="toggle-lable">{technique.english}</span>
+      <li className="settings-set-item">
+        <label className="toggle-component">
+          <span className="toggle-lable">{technique.english}</span>
           <input
             name={key + "-" + technique.id}
             id={key + "-" + technique.id}
             type="checkbox"
-            class="toggle-checkbox"
+            className="toggle-checkbox"
             defaultChecked={!disabled.has(technique.id)}
             onChange={e => uncheckItem(e.target)}
           ></input>
-          <span class="toggle-switch"></span>
+          <span className="toggle-switch"></span>
         </label>
       </li>
     );

@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "webpack --mode production && grunt sass",
+    "dev": "webpack --mode development --watch"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -15,11 +19,11 @@
     "grunt-sass": "^3.1.0",
     "html-webpack-plugin": "^5.5.3",
     "load-grunt-tasks": "^5.1.0",
-    "node-sass": "^9.0.0",
+    "sass": "^1.77.0",
     "style-loader": "^3.3.3",
-    "watch": "^1.0.2",
+    "watch": "^0.13.0",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.2.3"
   }
 }

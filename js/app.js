@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../scss/style.scss';
 
 let allTechniques = null;
 
@@ -12,11 +13,14 @@ async function fetchTechniques() {
 fetchTechniques().then(techniques => {
   allTechniques = techniques;
 
+  if (!storedInterval) AUTOPLAY_INTERVAL_MS = techniques.config.autoplayInterval * 1000;
+
   writeStack(techniques.attacks, 'attacks', '#attack');
-  writeStack(techniques.techniques, 'responses', '#response');
+  writeStack(techniques.techniques, 'techniques', '#technique');
 
   writeSettings(techniques.attacks, 'attacks', '#settings-attacks .settings-set');
-  writeSettings(techniques.techniques, 'responses', '#settings-responses .settings-set');
+  writeSettings(techniques.techniques, 'techniques', '#settings-techniques .settings-set');
+  writeConfigSettings(techniques.config, '#settings-config-set');
 });
 
 const speakToggle = document.querySelector('#menu-speak');
@@ -25,23 +29,72 @@ speakToggle.addEventListener('change', () => {
   localStorage.setItem('trainer-speak', speakToggle.checked);
 });
 
-const AUTOPLAY_INTERVAL_MS = 60 * 1000;
+const storedInterval = localStorage.getItem('trainer-autoplay-interval');
+let AUTOPLAY_INTERVAL_MS = storedInterval ? parseInt(storedInterval) * 1000 : 60 * 1000;
+const INACTIVITY_TIMEOUT_MS = 10 * 60 * 1000;
+
 let autoplayTimer = null;
+let inactivityTimer = null;
+let wakeLock = null;
 
 function dealNewCombination() {
   document.querySelectorAll('.stack-item:first-child button').forEach(card => discard(card));
   speakCards();
 }
 
+async function requestWakeLock() {
+  if (!('wakeLock' in navigator)) return;
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    wakeLock.addEventListener('release', () => { wakeLock = null; });
+  } catch (err) {
+    console.log('Wake lock unavailable:', err.message);
+  }
+}
+
+function releaseWakeLock() {
+  wakeLock?.release();
+  wakeLock = null;
+}
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(() => {
+    stopAutoplay();
+    autoplayToggle.checked = false;
+    localStorage.setItem('trainer-autoplay', 'false');
+  }, INACTIVITY_TIMEOUT_MS);
+}
+
 function startAutoplay() {
   dealNewCombination();
   autoplayTimer = setInterval(dealNewCombination, AUTOPLAY_INTERVAL_MS);
+  requestWakeLock();
+  resetInactivityTimer();
 }
 
 function stopAutoplay() {
   clearInterval(autoplayTimer);
   autoplayTimer = null;
+  clearTimeout(inactivityTimer);
+  inactivityTimer = null;
+  releaseWakeLock();
 }
+
+// Re-acquire wake lock if tab regains visibility while autoplay is on
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && autoplayToggle.checked) {
+    requestWakeLock();
+    resetInactivityTimer();
+  }
+});
+
+// Any user interaction resets the inactivity timer
+['click', 'touchstart', 'keydown', 'mousemove'].forEach(event => {
+  document.addEventListener(event, () => {
+    if (autoplayToggle.checked) resetInactivityTimer();
+  }, { passive: true });
+});
 
 const autoplayToggle = document.querySelector('#menu-autoplay');
 autoplayToggle.checked = localStorage.getItem('trainer-autoplay') === 'true';
@@ -51,6 +104,14 @@ autoplayToggle.addEventListener('change', () => {
 });
 
 if (autoplayToggle.checked) startAutoplay();
+
+const settingsToggle = document.querySelector('#menu-settings');
+const settingsSheet = document.querySelector('#settings');
+settingsToggle.addEventListener('change', () => {
+  if (settingsToggle.checked) {
+    settingsSheet.scrollTop = 0;
+  }
+});
 
 document.querySelector('#new-cards button').addEventListener('click', dealNewCombination);
 
@@ -121,6 +182,37 @@ function writeSettings(data, key, element) {
   ReactDOM.render(<Settings/>, list);
 }
 
+function writeConfigSettings(config, element) {
+  const list = document.querySelector(element);
+
+  const INTERVAL_STEPS = [15, 30, 60, 90];
+
+  function ConfigSettings() {
+    const storedInterval = localStorage.getItem('trainer-autoplay-interval');
+    const currentValue = storedInterval ? parseInt(storedInterval) : config.autoplayInterval;
+    return (
+      <li className="settings-set-item">
+        <label className="select-component" htmlFor="config-autoplay-interval">
+          <span className="select-label">Time between techniques</span>
+          <select
+            id="config-autoplay-interval"
+            defaultValue={currentValue}
+            onChange={e => {
+              const val = parseInt(e.target.value);
+              localStorage.setItem('trainer-autoplay-interval', val);
+              AUTOPLAY_INTERVAL_MS = val * 1000;
+            }}
+          >
+            {INTERVAL_STEPS.map(s => <option key={s} value={s}>{s}s</option>)}
+          </select>
+        </label>
+      </li>
+    );
+  }
+
+  ReactDOM.render(<ConfigSettings/>, list);
+}
+
 function uncheckItem(target) {
   const lastDash = target.id.lastIndexOf('-');
   const key = target.id.slice(0, lastDash);
@@ -136,8 +228,8 @@ function uncheckItem(target) {
 
   if (key === 'attacks') {
     writeStack(allTechniques.attacks, 'attacks', '#attack');
-  } else if (key === 'responses') {
-    writeStack(allTechniques.techniques, 'responses', '#response');
+  } else if (key === 'techniques') {
+    writeStack(allTechniques.techniques, 'techniques', '#technique');
   }
 }
 

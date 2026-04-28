@@ -89,7 +89,7 @@ textarea {
   --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   --stack-color--attack: orange;
-  --stack-color--response: yellow;
+  --stack-color--technique: yellow;
   --stack-color--direction: white;
   --stack-color--position: white;
 
@@ -101,6 +101,10 @@ textarea {
 
   --menu-item-color: #000000;
   --html-color: #222;
+
+  --icon-color-default: teal;
+  --icon-color-on: #555;
+  --icon-color-off: #888;
 }
 
 $settings-inset: .75rem;
@@ -117,7 +121,7 @@ body {
   font-family: var(--system-ui);
   margin: 0;
   padding: 0;
-
+  min-height: 100dvh;
 }
 
 #app,
@@ -126,7 +130,8 @@ body {
   overflow: hidden;
   padding: var(--screen-padding);
 
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
   min-height: -webkit-fill-available;
 }
 
@@ -137,7 +142,8 @@ body {
   overflow: hidden;
 
 
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
   min-height: -webkit-fill-available;
 
 
@@ -174,8 +180,8 @@ body {
 
     }
 
-    &#response .stack-item {
-      background-color: var(--stack-color--response);
+    &#technique .stack-item {
+      background-color: var(--stack-color--technique);
 
     }
 
@@ -305,7 +311,7 @@ body {
 
       width: 5rem;
       height: calc(5rem * 9/16);
-      background-color: var(--stack-color--response);
+      background-color: var(--stack-color--technique);
 
       border-radius: .05rem;
 
@@ -315,8 +321,34 @@ body {
 }
 
 #settings {
-  max-width: 25rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  width: min(100%, 25rem);
   margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #fff;
+  max-height: 100dvh;
+  max-height: 100svh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: calc(var(--screen-padding) + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .15);
+
+  transform: translateY(calc(100% + env(safe-area-inset-bottom, 0px)));
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .3s ease;
+
+  @supports (height: 100dvh) {
+    max-height: 100dvh;
+  }
+
+  @supports not (height: 100dvh) {
+    max-height: 100vh;
+  }
 
   h1 {
     text-align: center;
@@ -381,7 +413,8 @@ body {
         }
 
         &:focus-within {
-          .toggle-component {
+          .toggle-component,
+          .select-component {
             background-color: rgba(0, 0, 0, .1);
           }
         }
@@ -391,7 +424,8 @@ body {
           border-color: transparent;
         }
 
-        .toggle-component {
+        .toggle-component,
+        .select-component {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -404,11 +438,18 @@ body {
           }
 
         }
+        
 
 
       }
     }
   }
+}
+
+#app:has(#menu-settings:checked) + #settings {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .toggle-component {
@@ -458,6 +499,31 @@ body {
   }
 }
 
+#settings {
+
+  .select-component{
+
+    select {
+      // -webkit-appearance: none;
+      // -moz-appearance: none;
+      // appearance: none;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      color: inherit;
+      font: inherit;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    select option {
+      font-size: unset;
+    }
+  }
+}
+
 .menu {
 
   &,
@@ -466,23 +532,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: .5em;
 
     width: 100%;
   }
 
   &-item {
     list-style-type: none;
-    min-width: 2rem;
-    height: 2rem;
     text-align: center;
     margin: 0.2rem;
     position: relative;
-
-    border-radius: 50%;
-
-    &:hover {
-      background-color: #ccc;
+    
+    & > label{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;
     }
+    
+
+    
   }
 
   &-item__toggle {
@@ -490,61 +560,76 @@ body {
       display: none;
     }
 
-    .menu-toggle {}
+    input:checked ~ label { --icon-color: var(--icon-color-on); }
+    input:not(:checked) ~ label { --icon-color: var(--icon-color-off); }
+
+    &-button{
+
+      &__icon{
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+        position: relative;
+        border-radius: 50%;
+
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 15%;
+          right: 15%;
+          bottom: 15%;
+          left: 15%;
+          background-color: var(--icon-color);
+          mask-size: auto 100%;
+          mask-repeat: no-repeat;
+        }
+
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+
+      &__label{
+        display: block;
+        display: none;
+
+        font-size: .5rem;
+        font-weight: 600;
+      }
+    }
+
+    
   }
 
   #menu-autoplay {
 
-    &~label .menu-item__toggle-button,
-    &~label .menu-item__toggle-button::before,
-    &~label .menu-item__toggle-button::after {
-      position: absolute;
-
-    }
-
-    &~label .menu-item__toggle-button {
+    &~label .menu-item__toggle-button__icon {
 
       &::before,
       &::after {
-        content: "";
-        background-image: url(../img/autoplay-sprite.svg);
-        background-size: auto 100%;
-        background-repeat: no-repeat;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-    }
-
-    &~label .menu-item__toggle-button {
-      top: 15%;
-      right: 15%;
-      bottom: 15%;
-      left: 15%;
-    }
-
-    &~label .menu-item__toggle-button {
-
-      &::before,
-      &::after {
+        mask-image: url(../img/autoplay-sprite.svg?v=#{$sprite-cache-bust});
+        overflow: hidden;
         transition: opacity .25s ease-out, scale .25s ease-out;
         transform-origin: center;
       }
-      &::before{
-        /*pause icon */
-        background-position: center right;
+
+      &::before {
+        /* pause icon */
+        mask-position: center right;
       }
-      &::after{
-        /*play icon */
-        background-position: center left;
+
+      &::after {
+        /* play icon */
+        mask-position: center left;
         transform: translateX(100%);
       }
 
     }
 
     /* is autoplaying */
-    &:checked~label .menu-item__toggle-button {
+    &:checked~label .menu-item__toggle-button__icon {
 
       &::before {
         opacity: 1;
@@ -557,7 +642,7 @@ body {
     }
 
     /* not autoplaying */
-    &:not(:checked)~label .menu-item__toggle-button {
+    &:not(:checked)~label .menu-item__toggle-button__icon {
       &::before {
         opacity: 0;
         scale: .5;
@@ -598,52 +683,40 @@ body {
 
   #menu-speak {
 
-    &~label .menu-item__toggle-button,
-    &~label .menu-item__toggle-button::before,
-    &~label .menu-item__toggle-button::after {
-      position: absolute;
+    &~label .menu-item__toggle-button__icon {
 
-      background-image: url(../img/speak-sprite.svg);
-      background-size: auto 100%;
-      background-repeat: no-repeat;
-    }
+      .menu-item__toggle-button__icon-base {
+        position: absolute;
+        inset: 15%;
+        background-color: var(--icon-color);
+        mask-image: url(../img/speak-sprite.svg?v=#{$sprite-cache-bust});
+        mask-size: auto 100%;
+        mask-repeat: no-repeat;
+        mask-position: center left;
+      }
 
-    &~label .menu-item__toggle-button {
-      background-position: center left;
-      top: 15%;
-      right: 15%;
-      bottom: 15%;
-      left: 15%;
-    }
+      &::before {
+        mask-image: url(../img/speak-sprite.svg?v=#{$sprite-cache-bust});
+        mask-position: center center;
+        transform-origin: 25% 50%;
+      }
 
-    &~label .menu-item__toggle-button::before,
-    &~label .menu-item__toggle-button::after {
-      content: "";
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    &~label .menu-item__toggle-button::before {
-      background-position: center center;
-      transform-origin: 25% 50%;
-    }
-
-    &~label .menu-item__toggle-button::after {
-      background-position: center right;
-      transform-origin: 75% 50%;
+      &::after {
+        mask-image: url(../img/speak-sprite.svg?v=#{$sprite-cache-bust});
+        mask-position: center right;
+        transform-origin: 75% 50%;
+      }
     }
 
     &:checked~label {
-      .menu-item__toggle-button::before {
+      .menu-item__toggle-button__icon::before {
         opacity: 1;
         scale: 1;
         transition-delay: .4s;
         transition: .5s ease-out;
       }
 
-      .menu-item__toggle-button::after {
+      .menu-item__toggle-button__icon::after {
         opacity: 0;
         scale: .5;
         transition-delay: 0s;
@@ -652,14 +725,14 @@ body {
     }
 
     &:not(:checked)~label {
-      .menu-item__toggle-button::before {
+      .menu-item__toggle-button__icon::before {
         opacity: 0;
         scale: .5;
         transition-delay: 0s;
         transition: .0s;
       }
 
-      .menu-item__toggle-button::after {
+      .menu-item__toggle-button__icon::after {
         opacity: 1;
         scale: 1;
         transition-delay: .4s;
@@ -668,30 +741,40 @@ body {
     }
   }
 
-  #menu-settings {
-    position: relative;
-    display: block;
-    height: 100%;
-
-    &::before {
-      position: absolute;
-
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.5rem;
-      content: "";
-      display: block;
-      width: .25em;
-      height: 1em;
-
-      //background-color: #ccc;
-      background-image: radial-gradient(ellipse at center, var(--menu-item-color) 0%, var(--menu-item-color) 47%, transparent 49%, transparent 100%);
-      background-repeat: repeat-y;
-      background-size: .33em .33em;
-      background-position: center;
+  &-item__anchor {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
+  }
 
+  #menu-settings {
+    &~label .menu-item__toggle-button__icon {
+      &::before {
+        content: "";
+        // Override fill-to-edge positioning from shared block
+        top: 50%;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        width: .25em;
+        height: 1em;
+        background-color: transparent;
+        background-image: radial-gradient(ellipse at center, var(--icon-color) 0%, var(--icon-color) 47%, transparent 49%, transparent 100%);
+        background-repeat: repeat-y;
+        background-size: .33em .33em;
+        background-position: center;
+        mask-image: none;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 

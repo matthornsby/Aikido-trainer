@@ -1,4 +1,7 @@
 {
+    "config": {
+        "autoplayInterval": 60
+    },
     "attacks": {
         "name": "Attacks",
         "list": [
@@ -130,6 +133,12 @@
                 "english": "Kokyūnage",
                 "japanese": "呼吸投げ",
                 "id": 10,
+                "rate": 3
+            },
+            {
+                "english": "Kotegaeshi",
+                "japanese": "小手返し",
+                "id": 15,
                 "rate": 3
             },
             {
